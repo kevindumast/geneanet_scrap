@@ -1,0 +1,6 @@
+
+0 @I11@ INDI
+1 NAME Marie Louise / SIMONNEAUX /
+1 SEX F
+2 DATE 17/01/1798
+2 PLAC Noyal sur Vilaine, 35207, Ille et Vilaine, Bretagne, FRANCE

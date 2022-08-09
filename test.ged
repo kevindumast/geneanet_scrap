@@ -1,0 +1,265 @@
+
+0 @I1@ INDI
+1 NAME Arthur Victor / DUMAST /
+1 SEX U
+1 BIRT
+2 DATE 24/01/1915
+2 PLAC Mouy, , , ,
+1 DEAT
+2 DATE 05/08/1994
+2 PLAC Tours, 37000, Indre et Loire, Centre, France
+0 @I2@ INDI
+1 NAME Victor Alfred / DUMAST /
+1 SEX M
+1 BIRT
+2 DATE 1896
+1 DEAT
+2 DATE 1950
+2 PLAC Mouy, , Oise, Picardie, France
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 MARR
+2 DATE 28/09/1914
+2 PLAC Mouy, , Oise, Picardie, France
+CHIL @I1@
+0 @I3@ INDI
+1 NAME Gabrielle / GONTIER /
+1 SEX F
+1 BIRT
+2 DATE 13/02/1897
+2 PLAC Mouy, , Oise, Picardie, France
+1 DEAT
+2 DATE 03/08/1955
+2 PLAC Calais, , , ,
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 MARR
+2 DATE 28/09/1914
+2 PLAC Mouy, , Oise, Picardie, France
+CHIL @I1@
+0 @I4@ INDI
+1 NAME Victor / DUMAST /
+1 SEX M
+1 BIRT
+0 @F2@ FAM
+1 HUSB @I4@
+1 WIFE @I5@
+0 @I5@ INDI
+1 NAME Céline / GONTHIER /
+1 SEX F
+1 BIRT
+2 DATE 1870
+1 DEAT
+2 DATE 1944
+2 PLAC Mouy, , Oise, Picardie, France
+0 @F2@ FAM
+1 HUSB @I4@
+1 WIFE @I5@
+1 MARR
+2 DATE 
+0 @I6@ INDI
+1 NAME Arthur Adalbert / GONTIER /
+1 SEX M
+1 BIRT
+2 DATE 07/03/1873
+2 PLAC Mouy, , Oise, Picardie, France
+1 DEAT
+2 DATE 1914
+2 PLAC Mouy, , Oise, Picardie, France
+0 @F3@ FAM
+1 HUSB @I6@
+1 WIFE @I7@
+1 MARR
+2 DATE 11/04/1896
+2 PLAC Mouy, , Oise, Picardie, France
+CHIL @I1@
+0 @I7@ INDI
+1 NAME Marie Augustine / MILLET /
+1 SEX F
+1 BIRT
+2 DATE 13/09/1870
+2 PLAC Ully Saint Georges, , , ,
+0 @F3@ FAM
+1 HUSB @I6@
+1 WIFE @I7@
+2 PLAC Mouy, , Oise, Picardie, France
+CHIL @I1@
+0 @I8@ INDI
+1 NAME Victor Désiré / DUMAST /
+1 SEX M
+1 BIRT
+2 DATE 15/05/1874
+2 PLAC Mouy, , Oise, Picardie, France
+1 DEAT
+2 DATE 08/03/1952
+2 PLAC Noyon, , , ,
+0 @F4@ FAM
+1 HUSB @I8@
+1 WIFE @I9@
+1 MARR
+2 DATE 
+0 @I9@ INDI
+1 NAME ? ? /  /
+1 SEX F
+1 BIRT
+0 @F4@ FAM
+1 HUSB @I8@
+1 WIFE @I9@
+0 @I10@ INDI
+1 NAME ? ? /  /
+1 SEX M
+1 BIRT
+0 @F5@ FAM
+1 HUSB @I10@
+1 WIFE @I11@
+0 @I11@ INDI
+1 NAME ? ? /  /
+1 SEX F
+1 BIRT
+0 @F5@ FAM
+1 HUSB @I10@
+1 WIFE @I11@
+0 @I12@ INDI
+1 NAME Amédée / GONTIER /
+1 SEX M
+1 BIRT
+2 DATE 30/12/1848
+2 PLAC Mouy, , Oise, Picardie, France
+1 DEAT
+2 DATE 1922
+2 PLAC Mouy, , Oise, Picardie, France
+0 @F6@ FAM
+1 HUSB @I12@
+1 WIFE @I13@
+1 MARR
+2 DATE 23/04/1870
+2 PLAC Mouy, , Oise, Picardie, France
+CHIL @I1@
+0 @I13@ INDI
+1 NAME Ranie / AUTIN /
+1 SEX F
+1 BIRT
+2 DATE 11/11/1849
+2 PLAC Mouy, , Oise, Picardie, France
+1 DEAT
+2 DATE 1920
+2 PLAC Mouy, , , ,
+0 @F6@ FAM
+1 HUSB @I12@
+1 WIFE @I13@
+1 MARR
+2 DATE 23/04/1870
+2 PLAC Mouy, , Oise, Picardie, France
+CHIL @I1@
+0 @I14@ INDI
+1 NAME Joseph Augustin / MILLET /
+1 SEX M
+1 BIRT
+0 @F7@ FAM
+1 HUSB @I14@
+1 WIFE @I15@
+0 @I15@ INDI
+1 NAME Marie Célinie Idonie / RIVIERRE /
+1 SEX F
+1 BIRT
+2 DATE 1851
+0 @F7@ FAM
+1 HUSB @I14@
+1 WIFE @I15@
+0 @I24@ INDI
+1 NAME Auguste Prosper / GONTIER /
+1 SEX M
+1 BIRT
+2 DATE 23/04/1814
+2 PLAC Mouy, , Oise, Picardie, France
+1 DEAT
+2 DATE après 1873
+0 @F12@ FAM
+1 HUSB @I24@
+1 WIFE @I25@
+1 MARR
+2 DATE 06/11/1838
+2 PLAC Angy, Oise, , , ,
+CHIL @I1@
+0 @I25@ INDI
+1 NAME Joséphine Adeline / ORGER /
+1 SEX F
+1 BIRT
+2 DATE 27/11/1818
+2 PLAC Angy, Oise, , , ,
+1 DEAT
+2 DATE après 1872
+0 @F12@ FAM
+1 HUSB @I24@
+1 WIFE @I25@
+1 MARR
+2 DATE 06/11/1838
+2 PLAC Angy, Oise, , , ,
+CHIL @I1@
+0 @I26@ INDI
+1 NAME François Charles / AUTIN /
+1 SEX M
+1 BIRT
+2 DATE 1818
+0 @F13@ FAM
+1 HUSB @I26@
+1 WIFE @I27@
+0 @I27@ INDI
+1 NAME Geneviève / LORGNIER /
+1 SEX F
+1 BIRT
+2 DATE 1819
+0 @F13@ FAM
+1 HUSB @I26@
+1 WIFE @I27@
+0 @I30@ INDI
+1 NAME ? ? /  /
+1 SEX M
+1 BIRT
+0 @F15@ FAM
+1 HUSB @I30@
+1 WIFE @I31@
+0 @I31@ INDI
+1 NAME ? ? /  /
+1 SEX F
+1 BIRT
+0 @F15@ FAM
+1 HUSB @I30@
+1 WIFE @I31@
+0 @I48@ INDI
+1 NAME ? / INCONNU /
+1 SEX M
+1 BIRT
+0 @F24@ FAM
+1 HUSB @I48@
+1 WIFE @I49@
+0 @I49@ INDI
+1 NAME Marie Jeanne / GONTIER /
+1 SEX F
+1 BIRT
+2 DATE vers 1773
+1 DEAT
+2 DATE peut-être 21/12/1847
+0 @F24@ FAM
+1 HUSB @I48@
+1 WIFE @I49@
+1 MARR
+2 DATE 
+0 @I50@ INDI
+1 NAME Louis Philippe / ORGER /
+1 SEX M
+1 BIRT
+2 DATE 1790
+0 @F25@ FAM
+1 HUSB @I50@
+1 WIFE @I51@
+0 @I51@ INDI
+1 NAME Geneviève / VAUDREE /
+1 SEX F
+1 BIRT
+2 DATE 1788
+0 @F25@ FAM
+1 HUSB @I50@
+1 WIFE @I51@
