@@ -61,9 +61,12 @@ def get_dataframe_arbre_by_url(url: str):
     return df
 
 
-def get_dataframe_arbre_by_beautifoul_soup_url(url: str):
-    urlExport = Url_Data(url).urlExport
-    req = Request(urlExport)
+def get_dataframe_arbre_by_beautifoul_soup_url(url: str, forceUrlExact:bool = False):
+    if forceUrlExact:
+        req = Request(url)
+    else:
+        urlExport = Url_Data(url).urlExport
+        req = Request(urlExport)
     html_page = urlopen(req).read()
     soup = bs.BeautifulSoup(html_page, 'lxml')
     parsed_table = soup.find_all('table')
@@ -107,6 +110,7 @@ def get_name_with_sosa(chaine_name_surname: str = '', sosa: int = None) -> str:
     result = re.sub('[A-Z\u00C0-\u00DC]{0,100}$', '', chaine_name_surname.split(',')[0])
     return result.strip()
 
+# chaine_name_surname = "test LE COQ"
 
 def get_titre_with_sosa(chaine_name_surname: str = '', sosa: int = None) -> str:
     if sosa:
@@ -218,11 +222,11 @@ class Person:
         if test_person_exist(self.sosa):
             # self.add_header()
             self.add_information_person()
+            self.add_url_position_in_tree()
             self.add_birth_info()
             self.add_job()
             self.add_death_info()
             self.add_union_infos()
-            self.add_url_position_in_tree()
             return self.fiche
         else:
             return "la personne n existe pas"
@@ -233,7 +237,6 @@ class Person:
         # self.fiche.append(f"0 @I{self.sosa}@  NOTE")
         # self.fiche.append(f"1 CONT Present dans l arbre : {self.url}")
         # self.fiche.append(f"1 CONT Position dans l arbre : {self.urlPerson}")
-
         self.fiche.append(f"1 NOTE Present dans l arbre : {self.url}")
         self.fiche.append(f"1 NOTE Position dans l arbre : {self.urlPerson}")
         self.json.update({'urlTree': self.url, 'urlPerson': self.urlPerson})
@@ -342,7 +345,7 @@ def delete_file_if_exist(nomGed: str):
 
 
 def run_export_tree():
-    delete_file_if_exist(nomGed=nomGed)
+    delete_file_if_exist(nomGed=f"{str(pd.to_datetime('today'))[:10]}__{nomGed}")
     with open(f"arbres/{str(pd.to_datetime('today'))[:10]}__{nomGed}.ged", 'a', encoding='utf-8') as f:
         f.write('\n' + "0 HEAD")
         f.write('\n' + "1 SOUR scrap_gen")
@@ -359,19 +362,19 @@ def run_export_tree():
         print(f"export file {nomGed} : end -> {len(df['Sosa'].unique())} personnes")
 
 
-url = "https://gw.geneanet.org/vayssej?n=cailhol&oc=&p=baptiste"
+url = "https://gw.geneanet.org/smarliot?lang=fr&pz=soizic+bernadette&nz=marliot&p=nicolle&n=turmel"
 nomGed = Url_Data(url).name_tree
 Url_Data(url).urlExport
-df = get_dataframe_arbre_by_url(url=url)
+# df = get_dataframe_arbre_by_url(url=url)
 df = get_dataframe_arbre_by_beautifoul_soup_url(url=url)
 df = df[df['Personne'] != "? ?"]
 df.head()
 
 
-df[df['Personne'] == "Raymond RESSEGUIER"]
-df[df['Sosa'] == 30060]
+# df[df['Personne'] == "François DALBIN"]
+# df[df['Sosa'] == 30060]
 
-p = Person(sosa=30060, url=url)
+p = Person(sosa=865, url=url)
 p.get_fiche()
 p.json
 
