@@ -81,6 +81,8 @@ def get_dataframe_arbre_by_beautifoul_soup_url(url: str, forceUrlExact:bool = Fa
     except Exception as e:
         print(e)
     df['url_person'] = get_url_personne(soup, 1)
+    df['nomPersonne'] = df.url_person.apply(lambda x: get_param_url(x, 'n').upper().replace('+', ' '))
+    df['prenomPersonne'] = df.url_person.apply(lambda x: get_param_url(x, 'p').title().replace('+', ' '))
     # df['url_conjoint'] = get_url_personne(4)
     return df
 
@@ -97,17 +99,23 @@ def get_url_personne(soup, numero_col: int) -> list:
     return resultat
 
 
-def get_lastname_with_sosa(chaine_name_surname: str = '', sosa: int = None) -> str:
+def get_lastname_with_sosa(chaine_name_surname: str = '', sosa: int = None,field:bool=False) -> str:
     if sosa:
-        chaine_name_surname = df[df['Sosa'] == sosa]['Personne'].values[0]
-    result = re.search('[A-Z\u00C0-\u00DC]{0,10}$', chaine_name_surname.split(',')[0])
-    return result[0]
+        if not field:
+            chaine_name_surname = df[df['Sosa'] == sosa]['Personne'].values[0]
+            result = re.search('[A-Z\u00C0-\u00DC]{0,10}$', chaine_name_surname.split(',')[0])[0]
+        else:
+            result = df[df['Sosa'] == sosa]['nomPersonne'].values[0]
+    return result.strip()
 
 
-def get_name_with_sosa(chaine_name_surname: str = '', sosa: int = None) -> str:
+def get_name_with_sosa(chaine_name_surname: str = '', sosa: int = None,field:bool=False) -> str:
     if sosa:
-        chaine_name_surname = df[df['Sosa'] == sosa]['Personne'].values[0]
-    result = re.sub('[A-Z\u00C0-\u00DC]{0,100}$', '', chaine_name_surname.split(',')[0])
+        if not field :
+            chaine_name_surname = df[df['Sosa'] == sosa]['Personne'].values[0]
+            result = re.sub('[A-Z\u00C0-\u00DC]{0,100}$', '', chaine_name_surname.split(',')[0])
+        else:
+            result = df[df['Sosa'] == sosa]['prenomPersonne'].values[0]
     return result.strip()
 
 # chaine_name_surname = "test LE COQ"
@@ -209,6 +217,14 @@ def test_person_exist(sosa: int) -> bool:
     return not df[df['Sosa'] == sosa].empty
 
 
+def get_param_url(url:str,parameter:str=None) -> dict:
+    query = requests.utils.urlparse(url).query
+    if parameter is None:
+        return dict(x.split('=') for x in query.split('&'))
+    else:
+        return dict(x.split('=') for x in query.split('&')).get(parameter,"")
+
+
 class Person:
     def __init__(self, sosa, url=None):
         self.sosa = sosa
@@ -242,8 +258,8 @@ class Person:
         self.json.update({'urlTree': self.url, 'urlPerson': self.urlPerson})
     def add_information_person(self) -> None:
         self.fiche.append(f"0 @I{self.sosa}@ INDI")
-        self.lastname = get_lastname_with_sosa(sosa=self.sosa)
-        self.name = get_name_with_sosa(sosa=self.sosa)
+        self.lastname = get_lastname_with_sosa(sosa=self.sosa,field=True)
+        self.name = get_name_with_sosa(sosa=self.sosa,field=True)
         self.fiche.append(f"1 NAME {self.name} / {self.lastname} /")
         self.titre = get_titre_with_sosa(sosa=self.sosa)
         self.fiche.append(f"2 GIVN {self.name}")
@@ -362,11 +378,11 @@ def run_export_tree():
         print(f"export file {nomGed} : end -> {len(df['Sosa'].unique())} personnes")
 
 
-url = "https://gw.geneanet.org/smarliot?lang=fr&pz=soizic+bernadette&nz=marliot&p=nicolle&n=turmel"
+url = "https://gw.geneanet.org/124559?lang=fr&iz=2&m=A&p=anne&n=jolivel&oc=3&sosab=10&color=&t=Z&birth=on&birth_place=on&marr=on&marr_date=on&marr_place=on&death=on&death_place=on&death_age=on&occu=on&gen=on&repeat=on&v=6"
 nomGed = Url_Data(url).name_tree
 Url_Data(url).urlExport
 # df = get_dataframe_arbre_by_url(url=url)
-df = get_dataframe_arbre_by_beautifoul_soup_url(url=url)
+df = get_dataframe_arbre_by_beautifoul_soup_url(url=url,forceUrlExact=True)
 df = df[df['Personne'] != "? ?"]
 df.head()
 
@@ -374,13 +390,8 @@ df.head()
 # df[df['Personne'] == "François DALBIN"]
 # df[df['Sosa'] == 30060]
 
-p = Person(sosa=865, url=url)
+p = Person(sosa=2, url=url)
 p.get_fiche()
 p.json
 
 run_export_tree()
-
-
-
-
-df = df[df['Personne'] != "? ?"]
