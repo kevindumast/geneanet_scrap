@@ -1,0 +1,75 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #656d76;
+  --border: #d0d7de;
+  --accent: #2f6f4f;
+  --accent-fg: #ffffff;
+  --error: #b42318;
+  --ok: #1a7f37;
+  --field: #f6f8fa;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1f24;
+    --fg: #e6edf3;
+    --muted: #9198a1;
+    --border: #3d444d;
+    --accent: #3f9a6c;
+    --error: #ff7b72;
+    --ok: #56d364;
+    --field: #262a30;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  width: 380px;
+  margin: 0;
+  padding: 14px 16px 16px;
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+header { margin-bottom: 10px; }
+h1 { font-size: 16px; margin: 0; }
+.sub { margin: 2px 0 0; color: var(--muted); }
+label { display: block; font-weight: 600; margin: 8px 0 4px; }
+textarea, input[type="number"] {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--field);
+  color: var(--fg);
+  font: inherit;
+}
+textarea { resize: vertical; font-family: ui-monospace, monospace; font-size: 11px; }
+.row { display: flex; align-items: center; gap: 10px; }
+.row label { margin: 8px 0; flex: 1; }
+.row input { width: 80px; }
+.check { display: flex; gap: 6px; align-items: flex-start; font-weight: 400; }
+.check input { margin-top: 2px; }
+.hint { margin: 4px 0 0; color: var(--muted); font-size: 12px; min-height: 0; }
+button {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--field);
+  color: var(--fg);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+button:disabled { opacity: 0.6; cursor: progress; }
+#fetch { width: 100%; margin-top: 12px; }
+.status { margin: 10px 0 0; min-height: 1em; }
+.status.error { color: var(--error); }
+.status.ok { color: var(--ok); }
+.downloads { display: flex; gap: 8px; margin-top: 8px; }
+.downloads button { flex: 1; }
+.preview { margin-top: 10px; max-height: 220px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { position: sticky; top: 0; background: var(--field); }
+td:first-child { color: var(--muted); font-variant-numeric: tabular-nums; }

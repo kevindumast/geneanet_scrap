@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Geneanet Scrap - Export GEDCOM",
+  "short_name": "Geneanet Scrap",
+  "version": "1.0.0",
+  "description": "Exporte l'ascendance d'un arbre Geneanet en GEDCOM, CSV ou JSON (version extension du script run.py).",
+  "action": {
+    "default_title": "Exporter l'arbre Geneanet",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "scripting", "downloads", "storage"],
+  "host_permissions": ["https://*.geneanet.org/*"]
+}
