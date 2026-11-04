@@ -1,5 +1,11 @@
 # webscrap_geneanet
 
+Export de l'ascendance d'un arbre Geneanet au format GEDCOM.
+
+- `run.py` : script Python (pandas / BeautifulSoup).
+- [`chrome-extension/`](chrome-extension/README.md) : la même chose en **extension Chrome**, utilisable
+  directement depuis la page Geneanet (export GEDCOM, CSV et JSON).
+
 
 
 ## Getting started

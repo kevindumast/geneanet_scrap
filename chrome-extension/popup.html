@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Geneanet Scrap</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Geneanet Scrap</h1>
+      <p class="sub">Export de l'ascendance en GEDCOM</p>
+    </header>
+
+    <form id="form">
+      <label for="url">URL de la personne de départ (Sosa 1)</label>
+      <textarea id="url" rows="3" spellcheck="false" placeholder="https://gw.geneanet.org/monarbre?lang=fr&amp;p=prenom&amp;n=nom"></textarea>
+      <p id="tabHint" class="hint"></p>
+
+      <div class="row">
+        <label for="generations">Générations</label>
+        <input id="generations" type="number" min="1" max="100" value="10" />
+      </div>
+
+      <label class="check">
+        <input id="exactUrl" type="checkbox" />
+        Utiliser l'URL telle quelle (déjà une page d'ascendance en tableau)
+      </label>
+      <label class="check">
+        <input id="convertDates" type="checkbox" checked />
+        Convertir les dates au format GEDCOM (17/01/1798 → 17 JAN 1798)
+      </label>
+
+      <button id="fetch" type="submit" class="primary">Récupérer l'arbre</button>
+    </form>
+
+    <p id="status" class="status" role="status"></p>
+
+    <section id="result" hidden>
+      <div class="downloads">
+        <button data-format="ged" class="primary">GEDCOM</button>
+        <button data-format="csv">CSV</button>
+        <button data-format="json">JSON</button>
+      </div>
+      <div class="preview">
+        <table>
+          <thead>
+            <tr><th>Sosa</th><th>Personne</th><th>Naissance</th></tr>
+          </thead>
+          <tbody id="previewBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
